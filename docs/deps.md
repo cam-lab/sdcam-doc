@@ -97,6 +97,12 @@ sudo apt install cmake
 ./b2 install
 ```
 
+Создать переменную окружения:
+
+```shell
+export BOOST_PATH="$EXTERNAL_LIB/boost/1_84_0"
+```
+
 #### fmtlib
 
 Выполнить следующие команды:
