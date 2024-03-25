@@ -47,9 +47,4 @@ markdown_extensions:
 
 plugins:
     - glightbox
-
-
-
-
-
-
+    
