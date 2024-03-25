@@ -92,15 +92,18 @@ sudo apt install cmake
 3. Выполнить следующие команды, указав префикс целевого пути установки.
 
 ```shell
-./bootstrap.sh --prefix=$EXTERNAL_LIB/boost/1_84_0 --with-python=/usr/bin/python3 
+./bootstrap.sh --prefix=$EXTERNAL_LIB/boost/<vernum> --with-python=/usr/bin/python3 
 ./b2
 ./b2 install
 ```
 
-Создать переменную окружения:
+где `<vernum>`&nbsp;– номер версии библиотеки, например: `1_84_0`
+
+В завершение необходимо добавить путь к библиотеке в кэш поиска динамических библиотек:
 
 ```shell
-export BOOST_PATH="$EXTERNAL_LIB/boost/1_84_0"
+sudo sh -c "echo $EXTERNAL_LIB/boost/<vernum>/lib > /etc/ld.so.conf.d/boost.conf"
+sudo ldconfig
 ```
 
 #### fmtlib
