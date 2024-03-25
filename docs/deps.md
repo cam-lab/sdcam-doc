@@ -112,8 +112,8 @@ sudo ldconfig
 
 ```shell
 cd $EXTERNAL_LIB
-mkdir -p fmtlib/source
-cd fmtlib/source
+mkdir -p fmt/source
+cd fmt/source
 git clone --recursive https://github.com/cam-lab/fmt.git .
 git checkout dev
 ./build-fmtlib.sh
