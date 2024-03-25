@@ -1,0 +1,55 @@
+site_name: Software-Defined Camera
+#site_url: ''
+#use_directory_urls: false
+
+extra_css: [extra.css]
+
+theme:
+     name: readthedocs
+     features:
+         - content.code.copy
+         - content.code.annotate     
+  #  name: windmill
+
+nav:
+    - Concept:
+        - General              : index.md 
+        - Device Link Protocol : dlproto.md
+    - Environment:
+        - Dependencies         : deps.md
+        - Tools                : tools.md
+    - Implementation:
+        - Architecture        : arch.md
+        - High Level          : high-level.md
+        - Low  Level          : low-level.md
+
+
+extra_javascript:
+    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+markdown_extensions:
+    - toc:
+        permalink: "🔗"
+        baselevel: 1
+    - admonition
+    - mdx_math
+    - pymdownx.highlight:
+        anchor_linenums: true
+        line_spans: __span
+        pygments_lang_class: true
+    - pymdownx.inlinehilite
+    - pymdownx.snippets
+    - pymdownx.details
+    - pymdownx.superfences
+    - attr_list
+    - footnotes
+#
+
+plugins:
+    - glightbox
+
+
+
+
+
+
