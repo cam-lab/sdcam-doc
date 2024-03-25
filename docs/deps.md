@@ -112,7 +112,8 @@ cd $EXTERNAL_LIB
 mkdir -p fmtlib/source
 cd fmtlib/source
 git clone --recursive https://github.com/cam-lab/fmt.git .
-./build_fmtlib.sh
+git checkout dev
+./build-fmtlib.sh
 ```
 
 #### spdlog
@@ -124,5 +125,5 @@ cd $EXTERNAL_LIB
 mkdir -p spdlog/source
 cd spdlog/source
 git clone --recursive https://github.com/cam-lab/spdlog.git .
-./build_spdlog.sh
+./build-spdlog.sh
 ```
