@@ -14,14 +14,14 @@ theme:
 nav:
     - Concept:
         - General              : index.md 
-        - Device Link Protocol : dlproto.md
+        - Video Link Protocol  : video-link-proto.md
     - Environment:
         - Dependencies         : deps.md
         - Tools                : tools.md
     - Implementation:
-        - Architecture        : arch.md
-        - High Level          : high-level.md
-        - Low  Level          : low-level.md
+        - Architecture         : arch.md
+        - High Level           : high-level.md
+        - Low  Level           : low-level.md
 
 
 extra_javascript:
@@ -47,4 +47,3 @@ markdown_extensions:
 
 plugins:
     - glightbox
-    
