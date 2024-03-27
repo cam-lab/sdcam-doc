@@ -36,7 +36,11 @@
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
           <a href=".." class="icon icon-home"> Software-Defined Camera
-        </a>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
@@ -44,7 +48,7 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="..">General</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../dlproto/">Device Link Protocol</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../video-link-proto/">Video Link Protocol</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Environment</span></p>
@@ -53,6 +57,14 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Tools</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#python">Интерпретатор языка Python</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_2">Инструменты для языка С++</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#scons">Сборочный инструмент Scons</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_3">Мониторинг логов</a>
+    </li>
     </ul>
                   </li>
               </ul>
@@ -90,6 +102,31 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="_1">Инструментарий<a class="headerlink" href="#_1" title="Permanent link">🔗</a></h1>
+<p>Для сборки и работы программы требуются следующие инструменты.</p>
+<h2 id="python">Интерпретатор языка Python<a class="headerlink" href="#python" title="Permanent link">🔗</a></h2>
+<p>Программа использует интерпретатор реализации <strong>CPython</strong>. Рекомендуемая версия интерпретатора 3.10 и выше. </p>
+<p>На дистрибутивах Ubuntu интерпретатор ЯП <strong>Python</strong> как правило присутствует изначально, поэтому никаких дополнительных действий выполнять не требуется.</p>
+<h2 id="_2">Инструменты для языка С++<a class="headerlink" href="#_2" title="Permanent link">🔗</a></h2>
+<p>Для сборки <strong>C++</strong> части программы используется компилятор <strong>GCC</strong> с поддержкой стандарта С++17, т.е. версии 9 и выше. Пакет <strong>binutils</strong> (линкер, ассемблер, библиотекарь и т.п.) используется соответствующий&nbsp;– он автоматически устанавливается вместе с компилятором. Если по какой-то причине эти инструменты не установлены, то на дистрибутивах <strong>Ubuntu</strong> их можно установить командой:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>build-essential
+</span></code></pre></div>
+<h2 id="scons">Сборочный инструмент Scons<a class="headerlink" href="#scons" title="Permanent link">🔗</a></h2>
+<p>Автоматизация сборки <strong>C++</strong> части осуществляется с помощью сборочного инструмента <strong>SCons</strong>. Установить его удобнее всего из PyPi репозитория командой:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>scons
+</span></code></pre></div>
+<h2 id="_3">Мониторинг логов<a class="headerlink" href="#_3" title="Permanent link">🔗</a></h2>
+<p>При работе программа генерирует логи, помещаемые в поддиректорию:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>&lt;project-root&gt;/log
+</span></code></pre></div>
+<p>Для автоматического слежения за изменением содержимого лог-файлов удобно применять утилиту <code>multitail</code>, которую можно установить командой:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>multitail
+</span></code></pre></div>
+<p>В проекте имеются настройки и скрипт запуска утилиты. Настройки находятся в</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>&lt;project-root&gt;/.config/multitail.conf
+</span></code></pre></div>
+<p>а запуск осуществляется:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>./log.sh
+</span></code></pre></div>
               
             </div>
           </div><footer>
@@ -130,6 +167,12 @@
     <script src="../js/theme_extra.js"></script>
     <script src="../js/theme.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/wavedrom/2.6.8/wavedrom.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/wavedrom/2.6.8/skins/default.js"></script>
+      <script src="../js/wavedrom_loader.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/wavedrom@2.1.2/wavedrom.unpkg.js"></script>
+      <script src="https://wavedrom.com/skins/default.js"></script>
+      <script src="../search/main.js"></script>
     <script>
         jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);

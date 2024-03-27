@@ -36,7 +36,11 @@
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
           <a href=".." class="icon icon-home"> Software-Defined Camera
-        </a>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
@@ -44,7 +48,7 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="..">General</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../dlproto/">Device Link Protocol</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../video-link-proto/">Video Link Protocol</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Environment</span></p>
@@ -78,6 +82,8 @@
         </ul>
     </li>
         </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_8">Настройка хоста</a>
     </li>
     </ul>
                   </li>
@@ -125,7 +131,7 @@
 <li>C++.</li>
 </ul>
 <p>На <strong>Python</strong> описана т.н. бизнес-логика&nbsp;– высокоуровневая алгоритмика программы, а также её интерфейс пользователя. На <strong>C++</strong>, в свою очередь, реализуются низкоуровневые операции, являющиеся затратными в вычислительном плане. Каждый из ЯП имеет свои зависимости, перечень которых и способы установки приведены ниже.</p>
-<p>Очевидно, что рабочая станция разработчика для работы с платформой <strong>sdcam</strong> должна быть подготовлена, и эта подготовка сводится к установке зависимостей и <a href="../tools">инструментов</a>, а также настройке всего этого.</p>
+<p>Очевидно, что рабочая станция разработчика для работы с платформой <strong>sdcam</strong> должна быть подготовлена, и эта подготовка сводится к установке зависимостей и <a href="../tools/">инструментов</a>, а также настройке всего этого.</p>
 <h2 id="python">Python<a class="headerlink" href="#python" title="Permanent link">🔗</a></h2>
 <p>В случае <strong>Python</strong> всё достаточно просто, т.к. все зависимости доступны из PyPi репозиториев и устанавливаются утилитой <code>pip</code>. </p>
 <p>Используемые зависимости:</p>
@@ -193,7 +199,7 @@
 <li><strong>fmtlib</strong>. Библиотека для форматированной печати;</li>
 <li><strong>spdlog</strong>. Библиотека для организации логирования.</li>
 </ul>
-<p>Для сборки <strong>fmtlib</strong> и <strong>spdlog</strong> требуется утилита <strong>cmake</strong>. На дистрибутивах Debian/Ubuntu может быть установлена командой:</p>
+<p>Для сборки <strong>fmtlib</strong> и <strong>spdlog</strong> требуется утилита <strong>cmake</strong>. На дистрибутивах <strong>Debian/Ubuntu</strong> может быть установлена командой:</p>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>cmake
 </span></code></pre></div>
 <h4 id="boostpython">Boost.Python<a class="headerlink" href="#boostpython" title="Permanent link">🔗</a></h4>
@@ -202,18 +208,20 @@
 <li>Распаковать архив во временную директорию.</li>
 <li>Выполнить следующие команды, указав префикс целевого пути установки.</li>
 </ol>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>./bootstrap.sh<span class="w"> </span>--prefix<span class="o">=</span><span class="nv">$EXTERNAL_LIB</span>/boost/1_84_0<span class="w"> </span>--with-python<span class="o">=</span>/usr/bin/python3<span class="w"> </span>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>./bootstrap.sh<span class="w"> </span>--prefix<span class="o">=</span><span class="nv">$EXTERNAL_LIB</span>/boost/&lt;vernum&gt;<span class="w"> </span>--with-python<span class="o">=</span>/usr/bin/python3<span class="w"> </span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>./b2
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>./b2<span class="w"> </span>install
 </span></code></pre></div>
-<p>Создать переменную окружения:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">BOOST_PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$EXTERNAL_LIB</span><span class="s2">/boost/1_84_0&quot;</span>
+<p>где <code>&lt;vernum&gt;</code>&nbsp;– номер версии библиотеки, например: <code>1_84_0</code></p>
+<p>В завершение необходимо добавить путь к библиотеке в кэш поиска динамических библиотек:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;echo </span><span class="nv">$EXTERNAL_LIB</span><span class="s2">/boost/&lt;vernum&gt;/lib &gt; /etc/ld.so.conf.d/boost.conf&quot;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sudo<span class="w"> </span>ldconfig
 </span></code></pre></div>
 <h4 id="fmtlib">fmtlib<a class="headerlink" href="#fmtlib" title="Permanent link">🔗</a></h4>
 <p>Выполнить следующие команды:</p>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span><span class="nv">$EXTERNAL_LIB</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>fmtlib/source
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">cd</span><span class="w"> </span>fmtlib/source
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>fmt/source
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">cd</span><span class="w"> </span>fmt/source
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/cam-lab/fmt.git<span class="w"> </span>.
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>git<span class="w"> </span>checkout<span class="w"> </span>dev
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>./build-fmtlib.sh
@@ -226,11 +234,19 @@
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/cam-lab/spdlog.git<span class="w"> </span>.
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>./build-spdlog.sh
 </span></code></pre></div>
+<h2 id="_8">Настройка хоста<a class="headerlink" href="#_8" title="Permanent link">🔗</a></h2>
+<p>Для работы программы помимо установленных библиотек также требуется наличие сетевого сокета, через который осуществляется обмен данными с прибором. Для этих целей целесообразно иметь выделенный сетевой интерфейс с поддержкой скоростей передачи от 1Gbps и выше. Такой интерфейс удобно настроить со статическим сетевым адресом, дабы избежать сложностей и накладных расходов на поддержку DHCP в целевом приборе.</p>
+<p>Создание интерфейса на дистрибутивах <strong>Ubuntu</strong> можно выполнить с помощью команды:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>nmcli<span class="w"> </span>con<span class="w"> </span>add<span class="w"> </span><span class="nb">type</span><span class="w"> </span>ethernet<span class="w"> </span>con-name<span class="w"> </span><span class="s1">&#39;camif&#39;</span><span class="w"> </span>ifname<span class="w"> </span>enp11s0<span class="w"> </span>ipv4.method<span class="w"> </span>manual<span class="w"> </span>ipv4.addresses<span class="w"> </span><span class="m">192</span>.168.10.1/24<span class="w"> </span>ipv4.gateway<span class="w"> </span><span class="m">192</span>.168.10.255
+</span></code></pre></div>
+<p>Запуск интерфейса:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>nmcli<span class="w"> </span>con<span class="w"> </span>up<span class="w"> </span>id<span class="w"> </span><span class="s1">&#39;camif&#39;</span>
+</span></code></pre></div>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../dlproto/" class="btn btn-neutral float-left" title="Device Link Protocol"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../video-link-proto/" class="btn btn-neutral float-left" title="Video Link Protocol"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../tools/" class="btn btn-neutral float-right" title="Tools">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -254,7 +270,7 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../dlproto/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../video-link-proto/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../tools/" style="color: #fcfcfc">Next &raquo;</a></span>
@@ -266,6 +282,12 @@
     <script src="../js/theme_extra.js"></script>
     <script src="../js/theme.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/wavedrom/2.6.8/wavedrom.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/wavedrom/2.6.8/skins/default.js"></script>
+      <script src="../js/wavedrom_loader.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/wavedrom@2.1.2/wavedrom.unpkg.js"></script>
+      <script src="https://wavedrom.com/skins/default.js"></script>
+      <script src="../search/main.js"></script>
     <script>
         jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
