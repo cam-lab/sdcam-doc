@@ -56,3 +56,18 @@ div.el-p + div.el-ol > ol {
 .wy-nav-content {
      max-width: 1024px; /* or any other value you prefer */
 }
+   
+.rst-content code {
+    color: #0000aa;
+    font-size: 16px;
+    font-family: "Terminus (TTF)";
+    font-weight: 900;
+}
+
+.rst-content pre code {
+    color: #000;
+    background: #f8f8f8;
+    font-size: 16px;
+    font-family: "Terminus (TTF)";
+    font-weight: 900;
+}
