@@ -5,12 +5,12 @@ site_name: Software-Defined Camera
 extra_css: [extra.css]
 
 theme:
-     name: readthedocs
-     max_width: 2000
-     features:
-         - content.code.copy
-         - content.code.annotate     
-  #  name: windmill
+    name: readthedocs
+    max_width: 2000
+    features:
+        - content.code.copy
+        - content.code.annotate     
+  # name: windmill
 
 nav:
     - Concept:
