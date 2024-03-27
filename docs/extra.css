@@ -71,6 +71,7 @@ div.el-p + div.el-ol > ol {
     font-family: "TerminusRe";
     font-weight:550;
     margin-top: 10px;
+    line-height: 1.2;
 }
 
 @font-face {
