@@ -46,11 +46,22 @@ li {
     margin-top: 0.5em;
 }
 
-
 /* Remove the gap between a paragraph and a list that follows it */
 div.el-p + div.el-ul > ul,
 div.el-p + div.el-ol > ol {
     margin-top: -15px;
+}
+
+table {
+  margin-top: 20px;
+}
+
+.admonition {
+    margin-top: 20px;
+}
+
+WaveDrom {
+  margin-top: 40px;
 }
 
 .wy-nav-content {
