@@ -21,8 +21,8 @@ nav:
         - Tools                : tools.md
     - Implementation:
         - Architecture         : arch.md
-        - Low  Level           : low-level.md
         - High Level           : high-level.md
+        - Low  Level           : low-level.md
 
 
 extra_javascript:
