@@ -19,6 +19,7 @@ nav:
     - Environment:
         - Dependencies         : deps.md
         - Tools                : tools.md
+        - Host                 : host.md
     - Implementation:
         - Architecture         : arch.md
         - High Level           : high-level.md
