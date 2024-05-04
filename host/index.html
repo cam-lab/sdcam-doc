@@ -110,6 +110,12 @@
 </span><span id="__span-2-4"><a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>sudo<span class="w"> </span>sysctl<span class="w"> </span>-w<span class="w"> </span>net.core.rmem_max<span class="o">=</span><span class="m">26214400</span>
 </span></code></pre></div>
 <p>Здесь размер буферов увеличен до 25 мегабайт. Как правило, этого достаточно.</p>
+<p>Указанные команды устанавливают значения только на текущую сессию. Для того, чтобы установки применялись автоматически при каждом запуске ОС, необходимо их внести в файл <code>/etc/sysctl.conf</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>net.core.wmem_default=26214400
+</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>net.core.rmem_default=26214400
+</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>net.core.wmem_max=26214400
+</span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>net.core.rmem_max=26214400
+</span></code></pre></div>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
