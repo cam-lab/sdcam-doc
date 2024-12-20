@@ -24,6 +24,7 @@ nav:
         - Architecture         : arch.md
         - High Level           : high-level.md
         - Low  Level           : low-level.md
+        - Remote Control API   : rc-api.md
 
 
 extra_javascript:
