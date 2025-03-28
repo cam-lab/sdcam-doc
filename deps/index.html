@@ -1,130 +1,138 @@
 <!DOCTYPE html>
-
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" >
 <head>
-<meta charset="utf-8"/>
-<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link href="../img/favicon.ico" rel="shortcut icon"/>
-<title>Dependencies - Software-Defined Camera</title>
-<link href="../css/theme.css" rel="stylesheet"/>
-<link href="../css/theme_extra.css" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
-<link href="../extra.css" rel="stylesheet"/>
-<script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Dependencies - Software-Defined Camera</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+    
+      <script>
         // Current page data
         var mkdocs_page_name = "Dependencies";
         var mkdocs_page_input_path = "deps.md";
         var mkdocs_page_url = null;
       </script>
-<!--[if lt IE 9]>
+    
+    <!--[if lt IE 9]>
       <script src="../js/html5shiv.min.js"></script>
     <![endif]-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-<script>hljs.highlightAll();</script>
-<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-            html.glightbox-open { overflow: initial; height: 100%; }
-            .gslide-title { margin-top: 0px; user-select: text; }
-            .gslide-desc { color: #666; user-select: text; }
-            .gslide-image img { background: white; }
-            </style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+
 <body class="wy-body-for-nav" role="document">
-<div class="wy-grid-for-nav">
-<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
-<div class="wy-side-scroll">
-<div class="wy-side-nav-search">
-<a class="icon icon-home" href=".."> Software-Defined Camera
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Software-Defined Camera
         </a><div role="search">
-<form action="../search.html" class="wy-form" id="rtd-search-form" method="get">
-<input aria-label="Search docs" name="q" placeholder="Search docs" title="Type search term here" type="text"/>
-</form>
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
 </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Concept</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="..">General</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../video-link-proto/">Video Link Protocol</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Environment</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Dependencies</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_2">Назначение</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#python">Python</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#c">C++</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">Размещение зависимостей</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_4">Добавление копии библиотеки в проект</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_5">Добавление с помощью системы управления версиями</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#_6">Размещение в отдельном месте</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_7">Установка зависимостей</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#boostpython">Boost.Python</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#fmtlib">fmtlib</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#spdlog">spdlog</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tools/">Tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../host/">Host</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Implementation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../arch/">Architecture</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../high-level/">High Level</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../low-level/">Low  Level</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../rc-api/">Remote Control API</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Software-Defined Camera</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Environment</li>
+      <li class="breadcrumb-item active">Dependencies</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
 </div>
-<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
-<p class="caption"><span class="caption-text">Concept</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="..">General</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../video-link-proto/">Video Link Protocol</a>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Environment</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal current" href="./">Dependencies</a>
-<ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="#_2">Назначение</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#python">Python</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#c">C++</a>
-<ul>
-<li class="toctree-l3"><a class="reference internal" href="#_3">Размещение зависимостей</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#_4">Добавление копии библиотеки в проект</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#_5">Добавление с помощью системы управления версиями</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#_6">Размещение в отдельном месте</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#_7">Установка зависимостей</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#boostpython">Boost.Python</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#fmtlib">fmtlib</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#spdlog">spdlog</a>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../tools/">Tools</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../host/">Host</a>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">Implementation</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../arch/">Architecture</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../high-level/">High Level</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../low-level/">Low  Level</a>
-</li>
-</ul>
-</div>
-</div>
-</nav>
-<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
-<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
-<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
-<a href="..">Software-Defined Camera</a>
-</nav>
-<div class="wy-nav-content">
-<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
-<ul class="wy-breadcrumbs">
-<li><a aria-label="Docs" class="icon icon-home" href=".."></a></li>
-<li class="breadcrumb-item">Environment</li>
-<li class="breadcrumb-item active">Dependencies</li>
-<li class="wy-breadcrumbs-aside">
-</li>
-</ul>
-<hr/>
-</div>
-<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
-<div class="section" itemprop="articleBody">
-<h1 id="_1">Зависимости<a class="headerlink" href="#_1" title="Permanent link">🔗</a></h1>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="_1">Зависимости<a class="headerlink" href="#_1" title="Permanent link">🔗</a></h1>
 <h2 id="_2">Назначение<a class="headerlink" href="#_2" title="Permanent link">🔗</a></h2>
 <p>Для сборки и запуска целевой программы (<strong>sdcam</strong>) требуется ряд сторонних библиотек. Такие библиотеки называются зависимостями. Платформа <strong>sdcam</strong> реализована с использованием двух основных языков программирования (ЯП):</p>
 <ul>
 <li>Python;</li>
 <li>C++.</li>
 </ul>
-<p>На <strong>Python</strong> описана т.н. бизнес-логика – высокоуровневая алгоритмика программы, а также её интерфейс пользователя. На <strong>C++</strong>, в свою очередь, реализуются низкоуровневые операции, являющиеся затратными в вычислительном плане. Каждый из ЯП имеет свои зависимости, перечень которых и способы установки приведены ниже.</p>
+<p>На <strong>Python</strong> описана т.н. бизнес-логика&nbsp;– высокоуровневая алгоритмика программы, а также её интерфейс пользователя. На <strong>C++</strong>, в свою очередь, реализуются низкоуровневые операции, являющиеся затратными в вычислительном плане. Каждый из ЯП имеет свои зависимости, перечень которых и способы установки приведены ниже.</p>
 <p>Очевидно, что рабочая станция разработчика для работы с платформой <strong>sdcam</strong> должна быть подготовлена, и эта подготовка сводится к установке зависимостей и <a href="../tools/">инструментов</a>, а также настройке всего этого.</p>
 <h2 id="python">Python<a class="headerlink" href="#python" title="Permanent link">🔗</a></h2>
 <p>В случае <strong>Python</strong> всё достаточно просто, т.к. все зависимости доступны из PyPi репозиториев и устанавливаются утилитой <code>pip</code>. </p>
@@ -159,7 +167,7 @@
 <h3 id="_3">Размещение зависимостей<a class="headerlink" href="#_3" title="Permanent link">🔗</a></h3>
 <p>Существует несколько подходов к размещению зависимостей. </p>
 <h4 id="_4">Добавление копии библиотеки в проект<a class="headerlink" href="#_4" title="Permanent link">🔗</a></h4>
-<p>Самый простой способ – просто скопировать исходные файлы сторонних библиотек в директорию с проектом. Этот вариант имеет несколько существенных недостатков:</p>
+<p>Самый простой способ&nbsp;– просто скопировать исходные файлы сторонних библиотек в директорию с проектом. Этот вариант имеет несколько существенных недостатков:</p>
 <ul>
 <li>операцию приходится выполнять вручную для каждого проекта;</li>
 <li>библиотеки "поселяются" в проекте, занимают место, зачастую намного больше, чем исходные файлы
@@ -168,11 +176,11 @@
 </ul>
 <p>Принимая во внимание всё это, данный способ нельзя признать удовлетворительным.</p>
 <h4 id="_5">Добавление с помощью системы управления версиями<a class="headerlink" href="#_5" title="Permanent link">🔗</a></h4>
-<p>Второй способ похож на предыдущий, но размещение сторонних библиотек в проекте осуществляется средствами системы контроля версий – например, в случае использования <strong>git</strong> – это подмодули. В этом варианте с контролем версий и развёртыванием всё в порядке.</p>
+<p>Второй способ похож на предыдущий, но размещение сторонних библиотек в проекте осуществляется средствами системы контроля версий&nbsp;– например, в случае использования <strong>git</strong>&nbsp;– это подмодули. В этом варианте с контролем версий и развёртыванием всё в порядке.</p>
 <p>Недостатком по-прежнему остаётся избыточное место в дереве исходных файлов. При использовании библиотеки в нескольких проектах это приводит к дублированию. И при резервном копировании этот избыточный объём создаёт дополнительную нагрузку.</p>
-<p>Несомненным плюсом данного метода является привязка проекта к конкретной версии библиотеки – эту привязку контролирует система контроля версий.</p>
+<p>Несомненным плюсом данного метода является привязка проекта к конкретной версии библиотеки&nbsp;– эту привязку контролирует система контроля версий.</p>
 <h4 id="_6">Размещение в отдельном месте<a class="headerlink" href="#_6" title="Permanent link">🔗</a></h4>
-<p>Третий способ – это размещать библиоетку в отдельном специально созданном для этого месте. Здесь нет дублирования файлов, нет трудностей с развёртыванием – это делается обычным способом средствами системы управления версиями. </p>
+<p>Третий способ&nbsp;– это размещать библиоетку в отдельном специально созданном для этого месте. Здесь нет дублирования файлов, нет трудностей с развёртыванием&nbsp;– это делается обычным способом средствами системы управления версиями. </p>
 <p>К недостаткам можно отнести следующие:</p>
 <ul>
 <li>нет автоматической привязки проекта к конкретной версии библиотеки. Это чревато поломкой сборки
@@ -183,7 +191,7 @@
     страница.</li>
 </ul>
 <p>Для проекта <strong>sdcam</strong> выбран третий способ. Все зависимости размещаются в одной директории, путь к которой задаётся переменной окружения. Например:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">EXTERNAL_LIB</span><span class="o">=</span>/opt/lib
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">EXTERNAL_LIB</span><span class="o">=</span>/opt/lib
 </span></code></pre></div>
 <h3 id="_7">Установка зависимостей<a class="headerlink" href="#_7" title="Permanent link">🔗</a></h3>
 <p>Проект <strong>sdcam</strong> требует следующие библиотеки:</p>
@@ -194,7 +202,7 @@
 <li><strong>spdlog</strong>. Библиотека для организации логирования.</li>
 </ul>
 <p>Для сборки <strong>fmtlib</strong> и <strong>spdlog</strong> требуется утилита <strong>cmake</strong>. На дистрибутивах <strong>Debian/Ubuntu</strong> может быть установлена командой:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>cmake
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>cmake
 </span></code></pre></div>
 <h4 id="boostpython">Boost.Python<a class="headerlink" href="#boostpython" title="Permanent link">🔗</a></h4>
 <ol>
@@ -202,70 +210,84 @@
 <li>Распаковать архив во временную директорию.</li>
 <li>Выполнить следующие команды, указав префикс целевого пути установки.</li>
 </ol>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>./bootstrap.sh<span class="w"> </span>--prefix<span class="o">=</span><span class="nv">$EXTERNAL_LIB</span>/boost/&lt;vernum&gt;<span class="w"> </span>--with-python<span class="o">=</span>/usr/bin/python3<span class="w"> </span>
-</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>./b2
-</span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>./b2<span class="w"> </span>install
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>./bootstrap.sh<span class="w"> </span>--prefix<span class="o">=</span><span class="nv">$EXTERNAL_LIB</span>/boost/&lt;vernum&gt;<span class="w"> </span>--with-python<span class="o">=</span>/usr/bin/python3<span class="w"> </span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>./b2
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>./b2<span class="w"> </span>install
 </span></code></pre></div>
-<p>где <code>&lt;vernum&gt;</code> – номер версии библиотеки, например: <code>1_84_0</code></p>
+<p>где <code>&lt;vernum&gt;</code>&nbsp;– номер версии библиотеки, например: <code>1_84_0</code></p>
 <p>В завершение необходимо добавить путь к библиотеке в кэш поиска динамических библиотек:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>sudo<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">"echo </span><span class="nv">$EXTERNAL_LIB</span><span class="s2">/boost/&lt;vernum&gt;/lib &gt; /etc/ld.so.conf.d/boost.conf"</span>
-</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>sudo<span class="w"> </span>ldconfig
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;echo </span><span class="nv">$EXTERNAL_LIB</span><span class="s2">/boost/&lt;vernum&gt;/lib &gt; /etc/ld.so.conf.d/boost.conf&quot;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sudo<span class="w"> </span>ldconfig
 </span></code></pre></div>
 <h4 id="fmtlib">fmtlib<a class="headerlink" href="#fmtlib" title="Permanent link">🔗</a></h4>
 <p>Выполнить следующие команды:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span><span class="nv">$EXTERNAL_LIB</span>
-</span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>fmt/source
-</span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="nb">cd</span><span class="w"> </span>fmt/source
-</span><span id="__span-4-4"><a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/cam-lab/fmt.git<span class="w"> </span>.
-</span><span id="__span-4-5"><a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>git<span class="w"> </span>checkout<span class="w"> </span>dev
-</span><span id="__span-4-6"><a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>./build-fmtlib.sh
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span><span class="nv">$EXTERNAL_LIB</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>fmt/source
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">cd</span><span class="w"> </span>fmt/source
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/cam-lab/fmt.git<span class="w"> </span>.
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>git<span class="w"> </span>checkout<span class="w"> </span>dev
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>./build-fmtlib.sh
 </span></code></pre></div>
 <h4 id="spdlog">spdlog<a class="headerlink" href="#spdlog" title="Permanent link">🔗</a></h4>
 <p>Выполнить следующие команды:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span><span class="nv">$EXTERNAL_LIB</span>
-</span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>spdlog/source
-</span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="nb">cd</span><span class="w"> </span>spdlog/source
-</span><span id="__span-5-4"><a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a>git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/cam-lab/spdlog.git<span class="w"> </span>.
-</span><span id="__span-5-5"><a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>./build-spdlog.sh
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span><span class="nv">$EXTERNAL_LIB</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>spdlog/source
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nb">cd</span><span class="w"> </span>spdlog/source
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/cam-lab/spdlog.git<span class="w"> </span>.
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>./build-spdlog.sh
 </span></code></pre></div>
-</div>
-</div><footer>
-<div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
-<a class="btn btn-neutral float-left" href="../video-link-proto/" title="Video Link Protocol"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-<a class="btn btn-neutral float-right" href="../tools/" title="Tools">Next <span class="icon icon-circle-arrow-right"></span></a>
-</div>
-<hr/>
-<div role="contentinfo">
-<!-- Copyright etc -->
-</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../video-link-proto/" class="btn btn-neutral float-left" title="Video Link Protocol"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../tools/" class="btn btn-neutral float-right" title="Tools">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
 
   Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../video-link-proto/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../tools/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
-</div>
-</section>
-</div>
-<div aria-label="Versions" class="rst-versions" role="note">
-<span class="rst-current-version" data-toggle="rst-current-version">
-<span><a href="../video-link-proto/" style="color: #fcfcfc">« Previous</a></span>
-<span><a href="../tools/" style="color: #fcfcfc">Next »</a></span>
-</span>
-</div>
-<script src="../js/jquery-3.6.0.min.js"></script>
-<script>var base_url = "..";</script>
-<script src="../js/theme_extra.js"></script>
-<script src="../js/theme.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/wavedrom/2.6.8/wavedrom.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/wavedrom/2.6.8/skins/default.js"></script>
-<script src="../js/wavedrom_loader.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/wavedrom@2.1.2/wavedrom.unpkg.js"></script>
-<script src="https://wavedrom.com/skins/default.js"></script>
-<script src="../search/main.js"></script>
-<script>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../js/mathjax.js"></script>
+      <script src="../js/mathjax/tex-mml-chtml.js"></script>
+      <script src="../js/wavedrom.min.js"></script>
+      <script src="../js/wavedrom_loader.js"></script>
+      <script src="../js/wavedrom.unpkg.js"></script>
+      <script src="../js/wavedrom_skin_default.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
         jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
         });
     </script>
-<script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
 </html>

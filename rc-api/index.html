@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Remote Control API - Software-Defined Camera</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Remote Control API";
+        var mkdocs_page_input_path = "rc-api.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Software-Defined Camera
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Concept</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="..">General</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../video-link-proto/">Video Link Protocol</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Environment</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../deps/">Dependencies</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tools/">Tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../host/">Host</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Implementation</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../arch/">Architecture</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../high-level/">High Level</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../low-level/">Low  Level</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Remote Control API</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_1">Назначение</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_2">Функции</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">Содержание</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mmr">Чтение MMR</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_4">Пример:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mmr_1">Запись MMR</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_5">Пример:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_6">Выполнение функции</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Software-Defined Camera</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Implementation</li>
+      <li class="breadcrumb-item active">Remote Control API</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="remote-control-api">Remote Control API<a class="headerlink" href="#remote-control-api" title="Permanent link">🔗</a></h1>
+<h2 id="_1">Назначение<a class="headerlink" href="#_1" title="Permanent link">🔗</a></h2>
+<p>Описываемый интерфейс прикладного программирования (API&nbsp;– Application Programming Interface) предназначен для реализации тех или иных частей приложения, требующих удалённый доступ к функциям устройства.</p>
+<h2 id="_2">Функции<a class="headerlink" href="#_2" title="Permanent link">🔗</a></h2>
+<p>API содержит набор функций, которые можно вызывать как из кода приложения, так и из <strong>IPython</strong> консоли. Функции определены в классе <code>SdcCore</code>, поэтому доступ к ним осуществляется через объект класса <code>sdc</code>.</p>
+<p>Для доступа к MMR используются т.н. идентификаторы регистров. Идентификатор регистра представляет собой член объекта класса, определяющий регистр доступа. Объект класса определяет модуль, в котором определён регистр. Например:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span> <span class="nc">CamMod</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_mod</span>  <span class="o">=</span> <span class="mi">1</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_cr</span>   <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_cr_s</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_cr_c</span> <span class="o">=</span> <span class="mi">2</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_sr</span>   <span class="o">=</span> <span class="mi">3</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="k">def</span> <span class="nf">cr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>   <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_mod</span> <span class="o">&lt;&lt;</span> <span class="n">MOD_IDX_OFFSET</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cr</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="k">def</span> <span class="nf">cr_s</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_mod</span> <span class="o">&lt;&lt;</span> <span class="n">MOD_IDX_OFFSET</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cr_s</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="k">def</span> <span class="nf">cr_c</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_mod</span> <span class="o">&lt;&lt;</span> <span class="n">MOD_IDX_OFFSET</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cr_c</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="k">def</span> <span class="nf">sr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>   <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_mod</span> <span class="o">&lt;&lt;</span> <span class="n">MOD_IDX_OFFSET</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sr</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="o">...</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="n">cam</span>    <span class="o">=</span> <span class="n">CamMod</span><span class="p">()</span>    
+</span></code></pre></div>
+<p>Тут имя регистра связано с именем функции класса, которая возвращает числовое значение идентификатора регистра, используемое при формировании сообщений протокола удалённого управления.</p>
+<p>Такое описание позволяет избежать ряда ошибок при вызове функций доступ к MMR, связанных с несоответствием имени регистра модулю.</p>
+<h3 id="_3">Содержание<a class="headerlink" href="#_3" title="Permanent link">🔗</a></h3>
+<ol>
+<li>Чтение MMR</li>
+<li>Запись MMR</li>
+<li>Выполнение функции</li>
+</ol>
+<h3 id="mmr">Чтение MMR<a class="headerlink" href="#mmr" title="Permanent link">🔗</a></h3>
+<p>Для чтения MMR предназначены две функции:</p>
+<ol>
+<li><code>def rmmr(self, rid): ...</code></li>
+<li><code>def _rmmr(self, *args): ...</code></li>
+</ol>
+<p>Первая функция более удобна для вызова вручную в консоли и является "обёрткой" над второй&nbsp;– использует внутри себя. Функция печатает на экран результат выполнения.</p>
+<p>Вторая функция предназначена для внутреннего использования&nbsp;– вызова внутри кода приложения.</p>
+<p>Аргументом <code>rmmr()</code> является идентификатор регистра <code>rid</code> (см. выше).</p>
+<p>Аргументом <code>_rmmr()</code> является список параметров, передаваемых через запятую&nbsp;– это обычный синтаксис языка <strong>Python</strong>.</p>
+<h4 id="_4">Пример:<a class="headerlink" href="#_4" title="Permanent link">🔗</a></h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">sdc</span><span class="o">.</span><span class="n">rmmr</span><span class="p">(</span><span class="n">drc</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">cr</span><span class="p">)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">Out</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="mi">3</span>
+</span></code></pre></div>
+<h3 id="mmr_1">Запись MMR<a class="headerlink" href="#mmr_1" title="Permanent link">🔗</a></h3>
+<p>Для записи в MMR предусмотрены две функции:</p>
+<ol>
+<li><code>def wmmr(self, rid, data): ...</code></li>
+<li><code>def _wmmr(self, *args): ...</code></li>
+</ol>
+<p>Как и в случае с чтением MMR, первая функция более удобна для вызова вручную в консоли и так же является "обёрткой" над второй&nbsp;– использует внутри себя. Функция печатает на экран результат выполнения.</p>
+<p>Вторая фукнция предназначена для внутреннего использования&nbsp;– вызова внутри кода приложения.</p>
+<p>Аргументом <code>wmmr()</code> является идентификатор регистра <code>rid</code> (см. выше) и слово данных <code>data</code>.</p>
+<p>Аргументом <code>_wmmr()</code>, как в случае с <code>_rmmr</code>, является список параметров, передаваемых через запятую&nbsp;– это обычный синтаксис языка <strong>Python</strong>.</p>
+<h4 id="_5">Пример:<a class="headerlink" href="#_5" title="Permanent link">🔗</a></h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">In</span> <span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="n">sdc</span><span class="o">.</span><span class="n">wmmr</span><span class="p">(</span><span class="n">drc</span><span class="o">.</span><span class="n">cam</span><span class="o">.</span><span class="n">cr_s</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">successful</span> <span class="n">MMR</span> <span class="n">write</span>
+</span></code></pre></div>
+<h3 id="_6">Выполнение функции<a class="headerlink" href="#_6" title="Permanent link">🔗</a></h3>
+<p>Для выполнения функций на устройстве используется функция API:</p>
+<p><code>def _dev_fun_exec(self, *args): ...</code></p>
+<p>Функция получает список аргументов, передаваемых через запятую, где первым аргументом идёт идентификатор операции (вызываемой внутри устройства функции), который является целым числом, далее через запятую передаются опциональные параметры, например:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">In</span> <span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="n">sdc</span><span class="o">.</span><span class="n">_dev_fun_exec</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">Out</span><span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">uint16</span><span class="p">)</span>
+</span></code></pre></div>
+<p>В этом примере выполняется функция устройства с идентификатором <code>0</code>, устройство никаких данных не возвращает, присылает только сообщение-квитанцию. Вызов другой функции:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="n">sdc</span><span class="o">.</span><span class="n">_dev_fun_exec</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">Out</span><span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="n">array</span><span class="p">([</span><span class="mi">767</span><span class="p">,</span>   <span class="mi">1</span><span class="p">,</span>   <span class="mi">2</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">uint16</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Здесь выполняется функция устройства с идентификатором <code>1</code>, устройство возвращает три слова: заголовок, в котором закодировано количество возвращаемых данных, и сами данные.</p>
+<p>Попытка выполнить неподдерживаемую функцию, завершается получением сообщения-квитанции с кодом ошибки:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">In</span> <span class="p">[</span><span class="mi">15</span><span class="p">]:</span> <span class="n">drc</span><span class="o">.</span><span class="n">vhex</span><span class="p">(</span><span class="n">sdc</span><span class="o">.</span><span class="n">_dev_fun_exec</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">E</span><span class="p">:</span> <span class="n">request</span> <span class="n">returns</span> <span class="n">error</span> <span class="n">code</span><span class="p">:</span> <span class="s2">&quot;unsupported operation code&quot;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">[</span><span class="s1">&#39;0x40f&#39;</span><span class="p">]</span>
+</span></code></pre></div>
+<p>В этом примере передан идентификатор функции устройства <code>2</code>, который не соответствует списку поддерживаемых.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../low-level/" class="btn btn-neutral float-left" title="Low  Level"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../low-level/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../js/mathjax.js"></script>
+      <script src="../js/mathjax/tex-mml-chtml.js"></script>
+      <script src="../js/wavedrom.min.js"></script>
+      <script src="../js/wavedrom_loader.js"></script>
+      <script src="../js/wavedrom.unpkg.js"></script>
+      <script src="../js/wavedrom_skin_default.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
+</html>
