@@ -36,14 +36,18 @@ h6 {
 p {
     margin-top: 0.75em;
     margin-bottom: 0em;
+    font-size: 18px;
+    font-family: "Titillium Web[RUS by Daymarius]";
 }
 
 ul {
-    margin-top: 0.5em;
+    margin-top: 0.1em;
+    font-family: "Titillium Web[RUS by Daymarius]";
 }
 
 li {
-    margin-top: 0.5em;
+    margin-top: 0.1em;
+    font-family: "Titillium Web[RUS by Daymarius]";
 }
 
 /* Remove the gap between a paragraph and a list that follows it */
@@ -64,6 +68,24 @@ table {
      max-width: 1024px; /* or any other value you prefer */
 }
    
+@font-face {
+  font-family: "Titillium Web[RUS by Daymarius]";
+  font-weight: normal;
+  font-style: normal;
+  src: url(font/TitilliumWebRUS/titilliumwebrusbydaymarius_rg.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "Titillium Web[RUS by Daymarius]";
+  font-weight: bold;
+  font-style: normal;
+  src: url(font/TitilliumWebRUS/titilliumwebrusbydaymarius_bd.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: TerminusRe;
+  src: url(font/TerminusRe33-Bold.ttf);
+}
 .rst-content code {
     color: #0000aa;
     font-size: 16px;
@@ -81,7 +103,7 @@ table {
     line-height: 1.2;
 }
 
-@font-face {
-  font-family: TerminusRe;
-  src: url(font/TerminusRe33-Bold.ttf);
+figcaption {
+    font-weight: bold;
+    text-align: center;
 }
