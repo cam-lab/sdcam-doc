@@ -70,9 +70,15 @@ h5 + p {
 }
 
 h6 {
-  margin-top: 20px;
-  font-size: 20px;
+  margin-top: -1 rem;
+  margin-bottom: 1em;
+  font-size: 18px;
   font-family: "Titillium Web[RUS by Daymarius]";
+}
+
+h6 + p {
+  margin-top: -1rem;
+  margin-bottom: 1em;
 }
 
 p {
@@ -125,13 +131,13 @@ table {
 }
 
 @font-face {
-  font-family: TerminusRe;
-  src: url(font/TerminusRe33-Bold.ttf);
+  font-family: Terminus;
+  src: url(font/TerminusTTF-4.39.ttf);
 }
 .rst-content code {
     color: #0000aa;
     font-size: 16px;
-    font-family: "TerminusRe";
+    font-family: "Terminus";
     font-weight: 600;
 }
 
@@ -139,7 +145,7 @@ table {
     color: #000;
     background: #f8f8f8;
     font-size: 16px;
-    font-family: "TerminusRe";
+    font-family: "Terminus";
     font-weight:550;
     margin-top: 10px;
     line-height: 1.2;
